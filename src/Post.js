@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import User from "./components/User";
 import Create from "./components/Create";
+import "./index.css";
 
 const Post = () => {
   const [resource, setResource] = useState([]);
@@ -41,10 +42,16 @@ const Post = () => {
       });
   };
   return (
-    <div>
+    <div className="create">
       <Create onAdd={createResource} key={resource.id} />
       {resource.map((list) => (
-        <User key={list.id} id={list.id} title={list.title} body={list.body} />
+        <User
+          className="user"
+          key={list.id}
+          id={list.id}
+          title={list.title}
+          body={list.body}
+        />
       ))}
     </div>
   );

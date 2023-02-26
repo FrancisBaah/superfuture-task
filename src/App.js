@@ -7,7 +7,7 @@ import Post from "./Post";
 function App() {
   return (
     <>
-      <nav>
+      <nav className="nav">
         <ul>
           <li>
             <Link to="/">Header</Link>

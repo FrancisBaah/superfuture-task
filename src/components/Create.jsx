@@ -1,4 +1,5 @@
 import React from 'react'
+import '../index.css'
 
 const Create = ({onAdd}) => {
     const onSubmit = (e)=>{
@@ -8,7 +9,7 @@ const Create = ({onAdd}) => {
         e.target.body.value = '';
     }
   return (
-    <div>
+    <div className='createItem'>
       <form onSubmit={onSubmit}>
         <h2>create resource</h2>
         <input placeholder='title' name='title' />
