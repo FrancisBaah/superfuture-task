@@ -1,42 +1,30 @@
-import { useEffect, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import Create from "./components/Create";
+import Header from "./components/Header";
 import User from "./components/User";
+import Post from "./Post";
 
 function App() {
-  const [resource, setResource] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
-  const fetchData = async () => {
-    await fetch("https://jsonplaceholder.typicode.com/posts?_start=0&_limit=5")
-      .then((res) => res.json())
-      .then((data) => {
-        setResource(data);
-      });
-    console.log(resource);
-  };
-
-  const createResource = async (title, body) => {
-    await fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => {
-        if (res.status == !200) {
-          return;
-        } else {
-          return res.json();
-        }
-      })
-      .then((data) => {
-        setResource((item) => [...item, data]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   return (
-    <div>
-      {resource.map((list) => (
-        <User key={list.id} id={list.id} title={list.title} body={list.body} />
-      ))}
-    </div>
+    <>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Header</Link>
+          </li>
+          <li>
+            <Link to="/post">Listing all resource</Link>
+          </li>
+          <li>
+            <Link to="/create">Creating a resource</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Header />} />
+        <Route path="/post" element={<Post />} />
+      </Routes>
+    </>
   );
 }
 /*

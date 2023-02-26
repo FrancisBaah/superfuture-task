@@ -3,9 +3,9 @@ import React from 'react'
 const User = ({id,title, body}) => {
   return (
     <div>
-      <li>{id}</li>
-      <li>{title}</li>
-      <li>{body}</li>
+      <h1>{id}</h1>
+      <h3>{title}</h3>
+      <p>{body}</p>
     </div>
   )
 }
