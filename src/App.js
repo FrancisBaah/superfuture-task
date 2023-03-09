@@ -1,9 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Create from "./components/Create";
 import Header from "./components/Header";
+import Listing from "./components/Listing";
 import User from "./components/User";
-import Post from "./Post";
-
 function App() {
   return (
     <>
@@ -13,7 +12,7 @@ function App() {
             <Link to="/">Header</Link>
           </li>
           <li>
-            <Link to="/post">Listing all resource</Link>
+            <Link to="/listing">Listing all resource</Link>
           </li>
           <li>
             <Link to="/create">Creating a resource</Link>
@@ -22,7 +21,8 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/post" element={<Post />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/listing" element={<Listing />} />
       </Routes>
     </>
   );
